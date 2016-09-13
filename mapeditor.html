@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jumpy Map Editor</title>
+<link rel="stylesheet" href="style/mapeditor.css" />
+</head>
+
+<body>
+	<div id="kontrolle" style="position: absolute; margin-top: 0px; color: white;"></div>
+
+	<div id="topControls">
+		<div class="control">Height: <input id="height" style="text-align: right;" size="1" type="text" onchange="changeSize(this);"></input></div>
+		<div class="control">Width: <input id="width" style="text-align: right;" size="1" type="text" onchange="changeSize(this);"></input></div>
+		<div class="control">Gravity: <input id="gravity" style="text-align: right;" size="1" type="text" onchange="checkInput(this, this.value);"></input></div>
+		<div class="control">Jump Height: <input id="jumpheight" style="text-align: right;" size="1" type="text" onchange="checkInput(this, this.value);"></input></div>
+		<div class="control">Walk Speed: <input id="walkspeed" style="text-align: right;" size="1" type="text" onchange="checkInput(this, this.value);"></input></div>
+		<div class="control">Run Speed: <input id="runspeed" style="text-align: right;" size="1" type="text" onchange="checkInput(this, this.value);"></input></div>
+		<div class="control">Background: <input id="bgcolor" style="text-align: right;" size="1" type="text" value="#000" onchange="changeBackground(this);"></input></div>
+	</div>
+	
+	<div id="canvasContainer" style="top: 80px; left: 10px;">
+		<canvas id="canvas" width=1100 height=500 style="position: absolute;"></canvas>
+	</div>
+
+	<div id="controlContainer">
+		<canvas id="thumbCanvas" style="float: left"></canvas>
+		<canvas id="spriteCanvas" width=150 height=100></canvas>
+		
+		<button id="single" class="highlight" title="single" onclick="toggleDrawMode(true);">Single</button>
+		<button id="area" title="area" onclick="toggleDrawMode(false);">Area</button>
+		<button id="draw" class="highlight" title="draw" onclick="toggleEraser(false);">Draw</button>
+		<button id="erase" title="erase" onclick="toggleEraser(true);">Erase</button>
+		<button id="undo" title="undo" onclick="undo();">&#8630 </button>
+		<button id="redo" title="redo" onclick="redo();">&#8631 </button>
+		<button id="reset" onclick="reset();">Reset</button>
+		<button id="showcode" onclick="showcode();">Code</button>
+		<button id="startgame" onclick="startgame();">Run</button>
+	</div>
+	
+	<div id="shield" class="hidden" onclick="hideCode();"></div>
+	<div id="code" class="hidden"></div>
+
+	<script src="js/lib/jquery-1.8.3.min.js"></script>
+	<script src="js/editor/mapeditor.js"></script>
+</body>
+</html>
